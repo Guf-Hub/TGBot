@@ -127,7 +127,7 @@ Bot.sendMessage({
 ```JavaScript
 
 const botToken = "<botToken>"
-const webAppUrl = "Optional[<webAppUrl>]"
+const webAppUrl = "<webAppUrl>"
 const Bot = TGbot.bot(botToken, webAppUrl);
 
 function doPost(e) {
