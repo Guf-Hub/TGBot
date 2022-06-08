@@ -96,7 +96,8 @@ class TGbot {
 
     var response = UrlFetchApp.fetch(fullUrl, options);
 
-    if (response.getResponseCode() == 200) return JSON.parse(response);
+    if (response.getResponseCode() === 200)
+      return JSON.parse(response.getContentText());
     else false;
   }
 
@@ -162,7 +163,6 @@ class TGbot {
   deleteWebhook(drop_pending_updates = false) {
     if (this._botToken && this._webAppUrl)
       var payload = {
-        // url : this._webAppUr,
         drop_pending_updates: Boolean(drop_pending_updates),
       };
 
