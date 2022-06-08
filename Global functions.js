@@ -103,15 +103,15 @@ timeLog = {
     return new Date().getTime();
   },
 
-  endInMilliseconds: (s) => {
-    const e = new Date().getTime();
-    console.log(`SecondWay: ${e - s}ms`);
-    return e - s;
+  endInMilliseconds: (start, log = true) => {
+    const end = new Date().getTime();
+    if (log) console.log(`SecondWay: ${e - s}ms`);
+    return end - start;
   },
 
-  endInMinutes: (ms) => {
-    let minutes = 1000 * Math.round(ms / 1000); // округление до ближайшей секунды
-    const d = new Date(ms);
+  endInMinutes: (milliseconds) => {
+    let minutes = 1000 * Math.round(milliseconds / 1000); // округление до ближайшей секунды
+    const d = new Date(milliseconds);
     minutes = `${d.getUTCMinutes()}:${d.getUTCSeconds()}`;
     console.log(`MinutesWay: ${minutes}m`);
   },
