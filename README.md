@@ -208,7 +208,7 @@ function doPost(e) {
 - [editMessageText](https://core.telegram.org/bots/api#editmessagetext) метод, для редактирования текстовых и игровых сообщений.
 - [editMessageCaption](https://core.telegram.org/bots/api#editmessagecaption) метод, для редактирования подписей к сообщениям.
 - [editMessageMedia](https://core.telegram.org/bots/api#editmessagemedia) метод, для редактирования анимации, аудио, документа, фото или видео сообщения.
-- [editMessageReplyMarkup](https://core.telegram.org/bots/api#editmessagereplymarkup)
+- [editMessageReplyMarkup](https://core.telegram.org/bots/api#editmessagereplymarkup) метод, для редактирования разметки ответов сообщений.
 - [sendPhoto](https://core.telegram.org/bots/api#editmessagereplymarkup) метод, для отправки фотографий.
 - [sendDocument](https://core.telegram.org/bots/api#senddocument) метод, для отправки общих файлов.
 - [sendVideo](https://core.telegram.org/bots/api#sendvideo) метод, для отправки видео.

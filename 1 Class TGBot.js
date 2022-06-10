@@ -680,7 +680,7 @@ class TGbot {
    * @param {number} [options.message_id] идентификатор сообщения для редактирования, если inline_message_id не указан.
    * @param {string} [options.inline_message_id] идентификатор встроенного сообщения, если chat_id и message_id не указаны.
    * @param {string} options.text новый текст сообщения, 1-4096 символов.
-   * @param {(InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply)} [options.reply_markup] объект JSON для новой встроенной клавиатуры.
+   * @param {InlineKeyboardMarkup} [options.reply_markup] объект JSON для новой встроенной клавиатуры.
    * @param {string} [options.parse_mode] режим разбора сущностей в новой подписи "HTML" | "MarkdownV2".
    * @param {MessageEntity[]} [options.entities] JSON список специальных сущностей, которые появляются в тексте сообщения, который можно указать вместо parse_mode.
    * @param {boolean} [options.disable_web_page_preview]
@@ -723,7 +723,7 @@ class TGbot {
    * @param {number} [options.message_id] идентификатор сообщения для редактирования, если inline_message_id не указан.
    * @param {string} [options.inline_message_id] идентификатор встроенного сообщения, если chat_id и message_id не указаны.
    * @param {string} [options.caption] новый заголовок сообщения, 0-1024 символов.
-   * @param {(InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply)} [options.reply_markup] объект JSON для новой встроенной клавиатуры.
+   * @param {InlineKeyboardMarkup} [options.reply_markup] объект JSON для новой встроенной клавиатуры.
    * @param {string} [options.parse_mode] режим разбора сущностей в новой подписи "HTML" | "MarkdownV2".
    * @param {MessageEntity[]} [options.caption_entities] JSON список специальных сущностей, которые появляются в новом заголовке, который можно указать вместо parse_mode.
    * @return {Message | Boolean} В случае успеха, если отредактированное сообщение не является встроенным сообщением, возвращается Message отредактированное сообщение, в противном случае возвращается True.
@@ -804,7 +804,7 @@ class TGbot {
    * @param {(string|number)} [options.chat_id] уникальный идентификатор целевого чата или имя пользователя целевого канала (в формате \@channelusername), если inline_message_id не указан.
    * @param {number} [options.message_id] идентификатор сообщения для редактирования, если inline_message_id не указан.
    * @param {string} [options.inline_message_id] идентификатор встроенного сообщения, если chat_id и message_id не указаны.
-   * @param {(InlineKeyboardMarkup|ReplyKeyboardMarkup|ReplyKeyboardRemove|ForceReply)} [options.reply_markup] объект JSON для новой встроенной клавиатуры.
+   * @param {InlineKeyboardMarkup} [options.reply_markup] объект JSON для новой встроенной клавиатуры.
    * @return {Message | Boolean} В случае успеха, если отредактированное сообщение не является встроенным сообщением, возвращается отредактированное сообщение, в противном случае возвращается True.
    */
   editMessageReplyMarkup({
