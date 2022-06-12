@@ -24,6 +24,7 @@ const formatBuiltInButtons = (buttons) => {
     row.map((button) => {
       if (typeof button === "object") {
         if (button.request_contact) return button;
+        if (button.request_location) return button;
         return `${button.text}`;
       }
       return `${button}`;
