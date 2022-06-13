@@ -1062,6 +1062,15 @@ function getRandomLite(array, n) {
 }
 
 /**
+ * Рандомизатор без проверки
+ * @param {[*]} arr одномерный массив данных
+ * @return {[*]} рандомный элемент из массива
+ */
+function getRandomArrayElement(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+/**
  * Парсинг объекта по типу
  * @param {object} data объект
  * @return {object|JSON} data
