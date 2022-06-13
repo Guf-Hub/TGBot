@@ -98,7 +98,7 @@ class TGbot {
 
     if (response.getResponseCode() === 200)
       return JSON.parse(response.getContentText());
-    else false;
+    else return JSON.stringify(JSON.parse(response.getContentText()));
   }
 
   /**
