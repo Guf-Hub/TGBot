@@ -166,6 +166,71 @@ function writeLocation(message) {
   SpreadsheetApp.flush();
 }
 
+// сбор новых users
+function writeLogByUser(message) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet =
+    ss.getSheetByName("MESSAGES") ||
+    ss.insertSheet("MESSAGES").setTabColor("RED");
+
+  const chatType = message.chat.type;
+  const checkPm = chatType === "private",
+    chat = checkPm ? "" : message.chat.username, // если отправлено не ЛС, то добавляем username чата
+    chatTitle = checkPm ? "" : message.chat.title; // и название чата
+
+  const pfileId = message.hasOwnProperty("photo")
+    ? message.photo[2].file_id
+    : ""; // 2 качество
+  const vfileId = message.hasOwnProperty("video") ? message.video.file_id : "";
+
+  if (sheet.getLastRow() > 0)
+    sheet.appendRow([
+      new Date(),
+      chat,
+      chatTitle,
+      message.from.id,
+      message?.from.username,
+      message?.from.first_name,
+      message.message_id,
+      message?.text || message?.caption,
+      pfileId,
+      vfileId,
+      message?.hasOwnProperty("location") ? message.location : "",
+      message?.hasOwnProperty("contact") ? message.contact : "",
+    ]);
+  else {
+    sheet.appendRow([
+      "Дата",
+      "chat",
+      "chat_title",
+      "user_id",
+      "Ник",
+      "Имя",
+      "message_id",
+      "Текст / Подпись",
+      "pfileId",
+      "vfileId",
+      "location",
+      "contact",
+    ]);
+    sheet.appendRow([
+      new Date(),
+      chat,
+      chatTitle,
+      message.from.id,
+      message?.from.username,
+      message?.from.first_name,
+      message.message_id,
+      message?.text || message?.caption,
+      pfileId,
+      vfileId,
+      message?.hasOwnProperty("location") ? message.location : "",
+      message?.hasOwnProperty("contact") ? message.contact : "",
+    ]);
+  }
+  SpreadsheetApp.flush();
+}
+
 function saveFile_(id, folder, file_name, mimeType) {
   try {
     const content = getBlob_(id, mimeType);

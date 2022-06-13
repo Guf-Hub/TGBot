@@ -1064,7 +1064,7 @@ function getRandomLite(array, n) {
 /**
  * Рандомизатор без проверки
  * @param {[*]} arr одномерный массив данных
- * @return {[*]} рандомный элемент из массива
+ * @return {string} рандомный элемент из массива
  */
 function getRandomArrayElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -1087,6 +1087,28 @@ function parseDataByType(data) {
     return JSON.parse(data);
   }
   return {};
+}
+
+/**
+ * Получить содержимое файла JSON сохраненного на oogle Диске
+ * @param {string} fileId id файла на Google Диске
+ * @return {JSON} объект JSON
+ */
+function getFileJsonContentById(fileId) {
+  return JSON.parse(DriveApp.getFileById(fileId).getBlob().getDataAsString());
+}
+
+/**
+ * Получить содержимое файла JSON сохраненного на oogle Диске
+ * @param {string} fileName название файла на Google Диске
+ * @return {JSON} объект JSON
+ */
+function getFileJsonContentByFileName(fileName) {
+  var files = DriveApp.getFilesByName(fileName);
+  if (files.hasNext()) {
+    var file = files.next();
+    return JSON.parse(file.getBlob().getDataAsString());
+  }
 }
 
 /**

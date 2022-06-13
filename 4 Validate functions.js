@@ -106,7 +106,7 @@ function isValideDate(message) {
 }
 
 function isBadWord(message) {
-  const words = message.text
+  const words = (message?.text ? message.text : message.caption)
     .toLowerCase()
     .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ")
     .split(" ")
@@ -125,7 +125,7 @@ function replaceBadWords(message) {
     return word;
   };
 
-  return message.text
+  return (message?.text ? message.text : message.caption)
     .toLowerCase()
     .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ")
     .split(" ")
